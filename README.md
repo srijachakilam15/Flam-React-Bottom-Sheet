@@ -1,12 +1,42 @@
-# React + Vite
+React Spring Bottom Sheet
+Developed a single-page React web application that implements a smooth spring animation bottom sheet. Incorporated unique features like drag-to-open, snap points (full, half, closed), and elegant transitions. Enhanced the user experience with responsive design, interactive control buttons, and clean modular code. This project showcases mastery of React hooks, spring physics, and dynamic UI behavior for modern web interfaces.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Installation
+Application tested on:
+Node.js 18.x
 
-## Expanding the ESLint configuration
+npm 9.x
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React 18.x
+
+OS: Tested on Linux (Ubuntu 22.04), Windows 10
+
+Using npm
+Clone the repository and navigate into the folder:
+
+```
+git clone <your-repository-link>
+cd <project-folder-name>
+```
+Install React project dependencies:
+```
+npm install
+```
+Run the development server:
+```
+npm run dev
+```
+This will launch the app at(by default):
+```
+http://localhost:3000
+```
+if not look at the terminal output
+
+
+Build for production (optional):
+```
+npm run build
+```
+This will generate a build/ folder with the optimized production-ready app.
