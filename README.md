@@ -1,8 +1,6 @@
 React Spring Bottom Sheet
 Developed a single-page React web application that implements a smooth spring animation bottom sheet. Incorporated unique features like drag-to-open, snap points (full, half, closed), and elegant transitions. Enhanced the user experience with responsive design, interactive control buttons, and clean modular code. This project showcases mastery of React hooks, spring physics, and dynamic UI behavior for modern web interfaces.
 
-
-
 Installation
 Application tested on:
 Node.js 18.x
