@@ -1,0 +1,246 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "serif";
+  overflow-x: hidden;
+}
+
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background with animated gradient */
+.background-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #cb9db3, #e73c7e, #ce94ce, #935b9b);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.1;
+}
+
+.shape.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #ffffff;
+  top: -100px;
+  right: -100px;
+}
+
+.shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-bottom: 300px solid #ffffff;
+  bottom: -150px;
+  left: -100px;
+  transform: rotate(15deg);
+}
+
+.shape.wave {
+  width: 500px;
+  height: 500px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFFFFF' d='M45.2,-58.1C58.1,-48.3,67.5,-32.4,70.2,-15.4C72.8,1.6,68.7,19.7,57.5,34.2C46.3,48.7,28,59.6,8.1,66.5C-11.8,73.4,-33.3,76.3,-49.2,67.3C-65.1,58.3,-75.4,37.4,-76.8,16.9C-78.2,-3.6,-70.7,-23.7,-57.5,-38.5C-44.3,-53.3,-25.4,-62.8,-5.9,-59.8C13.6,-56.8,27.2,-41.3,45.2,-58.1Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-content {
+  padding: 2rem;
+  text-align: center;
+  color: rgb(16, 14, 14);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-family: "serif";
+}
+
+.title {
+  font-size: 2.9rem;
+  margin-bottom: 0.5rem;
+  
+}
+
+.subtitle {
+  font-family:"serif";
+  font-size: 1.7rem;
+  opacity: 0.9;
+  color: rgb(55, 21, 35);
+}
+
+/* Backdrop overlay */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(50, 50, 50, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Bottom Sheet */
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100vh - 100px);
+  background-color: rgb(207, 137, 156);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+  z-index: 999;
+  will-change: transform;
+}
+
+.bottom-sheet:active {
+  cursor: grabbing;
+}
+
+.handle {
+  width: 40px;
+  height: 5px;
+  background: #e2e8f0;
+  border-radius: 5px;
+  margin: 15px auto;
+  transition: all 0.3s ease;
+}
+
+.bottom-sheet.full .handle {
+  background: #c46588;
+}
+
+.content {
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  user-select: text;
+}
+
+.bottom-sheet.full .content,
+.bottom-sheet.half .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.button-row {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 1000;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #4f46e5;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: #3730a3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* GIF on the right side */
+.fixed-right-gif {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  height: 350px;
+  width: 550px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  user-select: none;
+  z-index: 997;
+  transition: all 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fixed-right-gif.visible {
+  opacity: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .fixed-right-gif {
+    height: 150px;
+    right: 10px;
+  }
+  
+  .button-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  button {
+    width: 80%;
+    max-width: 300px;
+  }
+}
